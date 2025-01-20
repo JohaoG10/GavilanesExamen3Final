@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="GavilanesExamen3Final.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:GavilanesExamen3Final"
-    Shell.FlyoutBehavior="Disabled"
-    Title="GavilanesExamen3Final">
+<Shell xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:local="clr-namespace:GavilanesExamen3Final"
+       x:Class="GavilanesExamen3Final.AppShell">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <Tab Title="Buscar País">
+            <ShellContent ContentTemplate="{DataTemplate local:BuscarPaisJG}" />
+        </Tab>
+        <Tab Title="Paises Guardados">
+            <ShellContent ContentTemplate="{DataTemplate local:PaisesGuardadosJG}" />
+        </Tab>
+    </TabBar>
 </Shell>

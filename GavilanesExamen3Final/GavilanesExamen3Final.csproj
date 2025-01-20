@@ -66,8 +66,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewsJG\" />
-	  <Folder Include="ViewModelsJG\" />
+	  <MauiXaml Update="ViewsJG\BuscarPaisJG.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ViewsJG\PaisesGuardadosJG.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
