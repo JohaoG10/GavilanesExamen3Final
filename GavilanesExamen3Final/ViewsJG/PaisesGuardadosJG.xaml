@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:GavilanesExamen3Final"
              x:Class="GavilanesExamen3Final.ViewsJG.PaisesGuardadosJG"
-             Title="Paises Guardados">
+             Title="Países Guardados">
 
-    <CollectionView x:Name="PaisesListView" ItemsSource="{Binding PaisesConsultados}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <StackLayout Padding="10" Orientation="Horizontal">
-                    <Label Text="{Binding PaisNombre}" FontSize="20" VerticalOptions="Center" />
-                    <Label Text="{Binding ZonaGeografica}" FontSize="16" VerticalOptions="Center" Margin="10,0,0,0" />
-                </StackLayout>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
+    <StackLayout Padding="10">
+        <ListView x:Name="PaisesListView" ItemsSource="{Binding PaisesGuardados}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefrescarCommand}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding PaisNombre}" Detail="{Binding ZonaGeografica}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
 </ContentPage>

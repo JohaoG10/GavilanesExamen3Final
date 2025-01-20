@@ -1,4 +1,5 @@
 using GavilanesExamen3Final.ViewModelsJG;
+using Microsoft.Maui.Controls;
 
 namespace GavilanesExamen3Final.ViewsJG
 {
@@ -6,8 +7,8 @@ namespace GavilanesExamen3Final.ViewsJG
     {
         public PaisesGuardadosJG()
         {
-            InitializeComponent();  
-            BindingContext = new ViewModelJG();
+            InitializeComponent();
+            BindingContext = new ViewModelPaisesGuardadosJG();
         }
     }
 }

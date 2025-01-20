@@ -18,34 +18,34 @@ namespace GavilanesExamen3Final.Complementos
         {
             try
             {
-                // Realizamos la llamada a la API
+               
                 var url = $"https://restcountries.com/v3.1/name/{nombreDelPais}?fullText=true";
                 var respuesta = await _httpClient.GetStringAsync(url);
 
-                // Deserializamos la respuesta
+               
                 var paises = JsonConvert.DeserializeObject<List<dynamic>>(respuesta);
 
-                // Verificamos si la respuesta contiene países
+              
                 if (paises != null && paises.Count > 0)
                 {
-                    var pais = paises[0]; // Tomamos el primer país (en caso de que haya varios)
+                    var pais = paises[0]; 
 
-                    // Devolvemos un objeto PaisJG con la información relevante
+                   
                     return new PaisJG
                     {
-                        PaisNombre = pais.name.common, // Obtener el nombre común del país
-                        ZonaGeografica = pais.region ?? "No disponible", // Asignar la región
-                        EnlaceMapa = $"https://www.google.com/maps/search/?q={pais.name.common}", // Enlace de mapa
-                        UsuarioRegistro = "JG" // Usuario de registro (puedes ajustarlo a tu preferencia)
+                        PaisNombre = pais.name.common, 
+                        ZonaGeografica = pais.region ?? "No disponible", 
+                        EnlaceMapa = $"https://www.google.com/maps/search/?q={pais.name.common}", 
+                        UsuarioRegistro = "JG" 
                     };
                 }
 
-                // Si no se encontró el país, devolvemos null
+               
                 return null;
             }
             catch (Exception ex)
             {
-                // En caso de error, podemos mostrar el error de la excepción para depuración
+                
                 Console.WriteLine("Error al obtener el país: " + ex.Message);
                 return null;
             }

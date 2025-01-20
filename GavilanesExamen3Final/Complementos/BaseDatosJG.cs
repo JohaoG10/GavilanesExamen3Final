@@ -2,29 +2,33 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
-using GavilanesExamen3Final.Complementos;
 
 namespace GavilanesExamen3Final.Complementos
 {
     public class BaseDatosJG
     {
-        private SQLiteAsyncConnection _conexion;
+        private readonly SQLiteAsyncConnection _database;
 
         public BaseDatosJG()
         {
-            var rutaBaseDeDatos = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "paises.db");
-            _conexion = new SQLiteAsyncConnection(rutaBaseDeDatos);
-            _conexion.CreateTableAsync<PaisJG>().Wait();  
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "PaisesDBJG.db3");
+
+            _database = new SQLiteAsyncConnection(dbPath,
+                SQLiteOpenFlags.ReadWrite |
+                SQLiteOpenFlags.Create |
+                SQLiteOpenFlags.SharedCache);
+
+            _database.CreateTableAsync<PaisJG>().Wait();
+        }
+
+        public Task<List<PaisJG>> ObtenerPaisesGuardadosAsync()
+        {
+            return _database.Table<PaisJG>().ToListAsync();
         }
 
         public Task<int> GuardarPaisAsync(PaisJG pais)
         {
-            return _conexion.InsertAsync(pais);
-        }
-
-        public Task<List<PaisJG>> ObtenerPaisesAsync()
-        {
-            return _conexion.Table<PaisJG>().ToListAsync();
+            return _database.InsertAsync(pais);
         }
     }
 }
