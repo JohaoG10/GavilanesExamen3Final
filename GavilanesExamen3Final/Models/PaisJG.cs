@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace AplicacionPais.Models
+namespace GavilanesExamen3Final.Models
 {
     public class PaisJG
     {
