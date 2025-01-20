@@ -1,10 +1,13 @@
 using GavilanesExamen3Final.ViewModelsJG;
 
-public partial class PaisesGuardadosJG : ContentPage
+namespace GavilanesExamen3Final.ViewsJG
 {
-    public PaisesGuardadosJG()
+    public partial class PaisesGuardadosJG : ContentPage
     {
-        InitializeComponent();
-        BindingContext = new ViewModelJG();
+        public PaisesGuardadosJG()
+        {
+            InitializeComponent();  
+            BindingContext = new ViewModelJG();
+        }
     }
 }

@@ -1,14 +1,12 @@
 ﻿using SQLite;
 
-namespace GavilanesExamen3Final.Models
+public class PaisJG
 {
-    public class PaisJG
-    {
-        [PrimaryKey, AutoIncrement]
-        public int PaisId { get; set; }
-        public string PaisNombre { get; set; }
-        public string ZonaGeografica { get; set; }
-        public string EnlaceMapa { get; set; }
-        public string UsuarioRegistro { get; set; }
-    }
+    [PrimaryKey, AutoIncrement]
+    public int PaisId { get; set; }
+
+    public string PaisNombre { get; set; }
+    public string ZonaGeografica { get; set; }
+    public string EnlaceMapa { get; set; }
+    public string UsuarioRegistro { get; set; }
 }

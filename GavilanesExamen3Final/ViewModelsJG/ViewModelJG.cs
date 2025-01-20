@@ -1,7 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using GavilanesExamen3Final.Models;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using GavilanesExamen3Final.Complementos;
 
