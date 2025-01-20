@@ -1,8 +1,14 @@
-public partial class BuscarPaisJG : ContentPage
+using GavilanesExamen3Final.ViewModelsJG;  
+using Microsoft.Maui.Controls;
+
+namespace GavilanesExamen3Final.ViewsJG
 {
-    public BuscarPaisJG()
+    public partial class BuscarPaisJG : ContentPage
     {
-        InitializeComponent();
-        BindingContext = new ViewModelJG();
+        public BuscarPaisJG()
+        {
+            InitializeComponent();
+            BindingContext = new ViewModelJG(); 
+        }
     }
 }
