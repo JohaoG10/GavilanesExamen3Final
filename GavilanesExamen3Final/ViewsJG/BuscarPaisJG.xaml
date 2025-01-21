@@ -1,24 +1,59 @@
-<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:GavilanesExamen3Final"
              x:Class="GavilanesExamen3Final.ViewsJG.BuscarPaisJG"
+             BackgroundColor="#F5F5F5"
              Title="Buscar País">
 
-    <StackLayout Padding="10">
-        <Entry x:Name="PaisNombreEntry" Text="{Binding PaisNombre}" Placeholder="Ingresa el nombre del país" />
-        <Button Text="Buscar" Command="{Binding BuscarComando}" />
-        <Label Text="{Binding MensajeError}" TextColor="Red" IsVisible="{Binding IsErrorVisible}" />
+    <StackLayout Padding="20" Spacing="15">
 
-        <Label Text="Nombre del País" TextColor="Black" />
-        <Label Text="{Binding PaisNombre}" />
+        <Label Text="Buscar un País" 
+               FontSize="24" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               TextColor="#333333" />
 
-        <Label Text="Región" TextColor="Black" />
-        <Label Text="{Binding ZonaGeografica}" />
+        <Frame Padding="10" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+            <Entry x:Name="PaisNombreEntry"
+                   Text="{Binding PaisNombre}"
+                   Placeholder="Ingresa el nombre del país"
+                   PlaceholderColor="#888"
+                   TextColor="#000"
+                   FontSize="18"
+                   VerticalOptions="Center"/>
+        </Frame>
 
-        <Label Text="Enlace de Mapa" TextColor="Black" />
-        <Label Text="{Binding EnlaceMapa}" />
+        <Button Text="🔍 Buscar" 
+                Command="{Binding BuscarComando}" 
+                BackgroundColor="#2196F3" 
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="20"
+                HeightRequest="50"/>
 
-        <Button Text="Limpiar" Command="{Binding LimpiarComando}" />
+        <Label Text="{Binding MensajeError}" 
+               TextColor="Red" 
+               IsVisible="{Binding IsErrorVisible}"
+               FontSize="16"/>
+
+        <Frame Padding="15" CornerRadius="10" HasShadow="True" BackgroundColor="White">
+            <StackLayout>
+                <Label Text="Nombre del País:" FontAttributes="Bold" TextColor="#555" />
+                <Label Text="{Binding PaisNombre}" FontSize="18" TextColor="#000" />
+
+                <Label Text="Región:" FontAttributes="Bold" TextColor="#555" />
+                <Label Text="{Binding ZonaGeografica}" FontSize="18" TextColor="#000" />
+
+                <Label Text="Mapa:" FontAttributes="Bold" TextColor="#555" />
+                <Label Text="{Binding EnlaceMapa}" FontSize="18" TextColor="Blue"/>
+            </StackLayout>
+        </Frame>
+
+        <Button Text="🧹 Limpiar"
+                Command="{Binding LimpiarComando}"
+                BackgroundColor="#FF5722"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="20"
+                HeightRequest="50"/>
     </StackLayout>
 </ContentPage>
