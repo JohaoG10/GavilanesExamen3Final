@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:GavilanesExamen3Final"
              x:Class="GavilanesExamen3Final.ViewsJG.PaisesGuardadosJG"
-             Title="Países Guardados">
+             Title="Paises Guardados">
+
+    <ContentPage.Resources>
+        <Style x:Key="CountryItemStyle" TargetType="Frame">
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="10,5" />
+            <Setter Property="BackgroundColor" Value="#F0F0F0" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="HasShadow" Value="True" />
+        </Style>
+
+        <Style x:Key="LabelTitleStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="FontAttributes" Value="Bold" />
+        </Style>
+
+        <Style x:Key="LabelValueStyle" TargetType="Label">
+            <Setter Property="TextColor" Value="#444444" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+    </ContentPage.Resources>
 
     <StackLayout Padding="10">
-        <ListView x:Name="PaisesListView" ItemsSource="{Binding PaisesGuardados}" IsPullToRefreshEnabled="True" RefreshCommand="{Binding RefrescarCommand}">
+        <Button Text="Refrescar" Command="{Binding RefrescarCommand}" BackgroundColor="#0055A4" TextColor="White" />
+        <ListView ItemsSource="{Binding PaisesGuardados}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding PaisNombre}" Detail="{Binding ZonaGeografica}" />
+                    <ViewCell>
+                        <Frame Style="{StaticResource CountryItemStyle}">
+                            <StackLayout>
+                                <Label Text="{Binding PaisNombre}" Style="{StaticResource LabelTitleStyle}" />
+                                <Label Text="{Binding ZonaGeografica}" Style="{StaticResource LabelValueStyle}" />
+                                <Label Text="{Binding EnlaceMapa}" Style="{StaticResource LabelValueStyle}" />
+                                <Label Text="BD: JGAVILANES" Style="{StaticResource LabelValueStyle}" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
